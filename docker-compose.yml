@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "8811:80"
+    volumes:
+      - .:/app/
+    links:
+      - php
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    expose:
+      - "9888:9000"
+    volumes:
+      - ./public:/app
