@@ -21,3 +21,6 @@ services:
       - "9888:9000"
     volumes:
       - ./public:/app
+    env_file:
+      # to check all env variables for a container run a command: docker exec <container_name> env
+      - ./docker/php/localhost.env
