@@ -1,6 +1,10 @@
-FROM php:7.4-fpm
+FROM php:7.4.0-fpm-alpine
 
-RUN pecl install xdebug-3.1.2 && docker-php-ext-enable xdebug
+#RUN pecl install xdebug-3.1.2 && docker-php-ext-enable xdebug
+RUN apk --no-cache add pcre-dev ${PHPIZE_DEPS} \
+  && pecl install xdebug-3.1.2 \
+  && docker-php-ext-enable xdebug \
+  && apk del pcre-dev ${PHPIZE_DEPS}
 
 # Copy the php config file
 COPY ./docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
