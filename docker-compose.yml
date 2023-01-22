@@ -23,11 +23,7 @@ services:
       - ./public:/app
       - ./docker/php/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf
       - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-      - ./profile:/tmp/profile
+      - /tmp/profile:/tmp/profile
     env_file:
       # to check all env variables for a container run a command: docker exec <container_name> env
       - ./docker/php/localhost.env
-    command: > 
-      sh -c "echo $$(date) >> /usr/some_file.txt &&
-      echo $$(date) >> /usr/some_file2.txt &&
-      php-fpm"
