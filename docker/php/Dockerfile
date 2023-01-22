@@ -1,5 +1,7 @@
 FROM php:7.4.0-fpm-alpine
 
+RUN mkdir /tmp/profile
+RUN chown www-data:www-data /tmp/profile
 
 RUN touch /var/log/xdebug.log
 RUN chmod 666 /var/log/xdebug.log
