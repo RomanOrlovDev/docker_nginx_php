@@ -27,3 +27,10 @@ Then check if two services are run and their status is *Up*:
 Put breakpoint in ./docker/public/index.php. 
 Create remote debug connection in PHPStorm. 
 It should be enough for the debugger to stop.
+
+
+When `docker compose up` executed to profile you have to run
+```
+sudo chmod 777 profile 
+```
+manually since docker compose volume persists root 755 permission mode and does not allow to change it during starting docker container (as soon as I know).
