@@ -34,3 +34,5 @@ When `docker compose up` executed to profile you have to run
 sudo chmod 777 profile 
 ```
 manually since docker compose volume persists root 755 permission mode and does not allow to change it during starting docker container (as soon as I know).
+
+Check `profiler` branch to get xdebug profiling feature.
